@@ -31,8 +31,13 @@ function EE._Start(Module : ModuleScript)
 	return newEconomy
 end
 
-function EE._Init()
+function EE:_Init()
+	local InvesmentService = require(script.InvesmemtService)
+	local NewInvesment = InvesmentService._Start(self.Config)
+	
 	EE._CreateLeaderstats(true)
+	
+	NewInvesment:_EnableRandomizer()
 end
 
 function EE._CreateLeaderstats(Create : boolean)
@@ -50,12 +55,13 @@ function EE._CreateCoin(Name : string, leaderstats : Folder)
 	Coin.Value = 0
 end
 
-function EE:EnablePayday(Coin : IntValue)
+function EE:EnablePayday(Enable : boolean, Coin : IntValue)
 
 	while true do
 		Coin.Value = Coin.Value + self.Payday
 		wait(self.Cooldown)
 	end
 end
+
 
 return EE
