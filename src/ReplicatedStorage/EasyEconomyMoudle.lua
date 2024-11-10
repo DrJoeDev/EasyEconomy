@@ -37,7 +37,7 @@ function EE:_Init()
 	
 	EE._CreateLeaderstats(true)
 	
-	NewInvesment:_EnableRandomizer()
+	NewInvesment:_EnableRandomizer(true)
 end
 
 function EE._CreateLeaderstats(Create : boolean)
